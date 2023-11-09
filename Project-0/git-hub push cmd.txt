@@ -1,0 +1,13 @@
+echo "# HTML-WorkTree" >> README.md
+ git init
+ git add README.md or
+ git add index.html
+ git commit -m "commit message"
+ git branch -M master
+ git remote add origin https://github.com/swavyast/HTML-WorkTree.git
+ git push -u origin master
+
+ //
+ git add index.html
+ git commit -m "first commit-1"
+ git push -u origin master
