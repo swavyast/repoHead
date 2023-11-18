@@ -18,11 +18,15 @@ public class Account extends Bank {
     private String claimantDetails;
     private String accType;
     private BigDecimal balance;
+    private CreditCard creditCard;
+    private DebitCard debitCard;
     private boolean phoneBanking;
     private boolean emailBanking;
     private boolean upiEnabled;
     private boolean aadhaarLinked;
     private boolean panCardLinked;
+    private boolean ccIssued;
+    private boolean dcIssued;
     private boolean accidentalClaim;
     
     public Account() {
@@ -62,10 +66,12 @@ public class Account extends Bank {
 	this.accidentalClaim = accidentalClaim;
     }
 
-    public Account(String acNo, String acHolderName, String father, String mother, Account referredBy,
+    public Account(long id, String acNo, String acHolderName, String father, String mother, Account referredBy,
 	    String acHolderEmail, long acHolderPhone, long aadhaar, String pan, String otherId, String claimantDetails,
-	    String accType, BigDecimal balance, boolean phoneBanking, boolean emailBanking, boolean upiEnabled,
-	    boolean aadhaarLinked, boolean panCardLinked, boolean accidentalClaim) {
+	    String accType, BigDecimal balance, CreditCard creditCard, DebitCard debitCard, boolean phoneBanking,
+	    boolean emailBanking, boolean upiEnabled, boolean aadhaarLinked, boolean panCardLinked, boolean ccIssued,
+	    boolean dcIssued, boolean accidentalClaim) {
+	this.id = id;
 	this.acNo = acNo;
 	this.acHolderName = acHolderName;
 	this.father = father;
@@ -79,11 +85,15 @@ public class Account extends Bank {
 	this.claimantDetails = claimantDetails;
 	this.accType = accType;
 	this.balance = balance;
+	this.creditCard = creditCard;
+	this.debitCard = debitCard;
 	this.phoneBanking = phoneBanking;
 	this.emailBanking = emailBanking;
 	this.upiEnabled = upiEnabled;
 	this.aadhaarLinked = aadhaarLinked;
 	this.panCardLinked = panCardLinked;
+	this.ccIssued = ccIssued;
+	this.dcIssued = dcIssued;
 	this.accidentalClaim = accidentalClaim;
     }
 
@@ -231,6 +241,38 @@ public class Account extends Bank {
         this.panCardLinked = panCardLinked;
     }
 
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
+
+    public DebitCard getDebitCard() {
+        return debitCard;
+    }
+
+    public void setDebitCard(DebitCard debitCard) {
+        this.debitCard = debitCard;
+    }
+
+    public boolean isCcIssued() {
+        return ccIssued;
+    }
+
+    public void setCcIssued(boolean ccIssued) {
+        this.ccIssued = ccIssued;
+    }
+
+    public boolean isDcIssued() {
+        return dcIssued;
+    }
+
+    public void setDcIssued(boolean dcIssued) {
+        this.dcIssued = dcIssued;
+    }
+
     public boolean isAccidentalClaim() {
         return accidentalClaim;
     }
@@ -238,16 +280,21 @@ public class Account extends Bank {
     public void setAccidentalClaim(boolean accidentalClaim) {
         this.accidentalClaim = accidentalClaim;
     }
-
+    
+    public String minDetails() {
+	return "Account [AcNo.="+acNo+", AcHolderName="+acHolderName+", Email="+acHolderEmail+", Phone="+acHolderPhone
+		+", PanNumber="+pan+", AadhaarNumber"+aadhaar+", Balance="+balance+"]";
+    }
     @Override
     public String toString() {
 	return "Account [id=" + id + ", acNo=" + acNo + ", acHolderName=" + acHolderName + ", father=" + father
 		+ ", mother=" + mother + ", referredBy=" + referredBy + ", acHolderEmail=" + acHolderEmail
 		+ ", acHolderPhone=" + acHolderPhone + ", aadhaar=" + aadhaar + ", pan=" + pan + ", otherId=" + otherId
 		+ ", claimantDetails=" + claimantDetails + ", accType=" + accType + ", balance=" + balance
-		+ ", phoneBanking=" + phoneBanking + ", emailBanking=" + emailBanking + ", upiEnabled=" + upiEnabled
-		+ ", aadhaarLinked=" + aadhaarLinked + ", panCardLinked=" + panCardLinked + ", accidentalClaim="
-		+ accidentalClaim + "]";
+		+ ", creditCard=" + creditCard + ", debitCard=" + debitCard + ", phoneBanking=" + phoneBanking
+		+ ", emailBanking=" + emailBanking + ", upiEnabled=" + upiEnabled + ", aadhaarLinked=" + aadhaarLinked
+		+ ", panCardLinked=" + panCardLinked + ", ccIssued=" + ccIssued + ", dcIssued=" + dcIssued
+		+ ", accidentalClaim=" + accidentalClaim + "]";
     }
     
 }
