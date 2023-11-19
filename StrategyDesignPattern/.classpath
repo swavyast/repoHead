@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="E:/Java Full Stack/JTC India/Frameworks/hibernate-3.0/mysql/mysql-connector-java-5.0.0-beta/mysql-connector-java-5.0.0-beta/mysql-connector-java-5.0.0-beta-bin.jar"/>
 	<classpathentry kind="lib" path="E:/Java Full Stack/JTC India/Frameworks/hibernate-3.0/oracle/ojdbc14.jar/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="E:/Java Full Stack/JTC India/Frameworks/hibernate-3.0/hibernate-3.0/hibernate3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
