@@ -9,7 +9,7 @@ public class One {
     private long phone;
 
     public One() {
-	
+
 	System.out.println("\nDefault constructor in One\n");
     }
 
@@ -20,7 +20,7 @@ public class One {
 	this.email = email;
 	this.phone = phone;
     }
-    
+
     static {
 	System.out.println("Static block in One");
     }
