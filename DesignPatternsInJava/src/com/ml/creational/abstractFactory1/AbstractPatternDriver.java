@@ -4,7 +4,7 @@ public class AbstractPatternDriver {
 
     public static void main(String[] args) {
 	
-	Human human=CreateHuman.getHuman("Female");
+	Human<Female> human=CreateHuman.getHuman("Female");
 	System.out.println(human);
 	FemaleChild fc=(FemaleChild) human.create(4);
 	YoungGirl yg=(YoungGirl) human.create(12);
@@ -17,7 +17,7 @@ public class AbstractPatternDriver {
 	System.out.println(ow);
 	
 	System.out.println("\n_____________________________\n\n");
-	Human human0=CreateHuman.getHuman("Male");
+	Human<Male> human0=CreateHuman.getHuman("Male");
 	System.out.println(human0);
 	MaleChild mc=(MaleChild) human0.create(5);
 	YoungGuy yb=(YoungGuy) human0.create(10);
@@ -28,6 +28,11 @@ public class AbstractPatternDriver {
 	System.out.println(yb);
 	System.out.println(gm);
 	System.out.println(om);
+	
+	System.out.println("\n___________________________________\n");
+	
+	FemaleChild fch=new FemaleChild();
+	System.out.println(fch);
     }
 
 }
