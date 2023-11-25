@@ -7,7 +7,7 @@ import com.ml.creational.abstractFactory.interfaces.ModeOfEducation;
 import com.ml.creational.abstractFactory.interfaces.TypeOfStudent;
 
 public class RegistrationDriver {
-    
+
     public static void main(String[] args) {
 	Student s1=new Student();
 	//ModeOfEducation moe=new OfflineStudent();
@@ -24,7 +24,7 @@ public class RegistrationDriver {
 	//OfflineStudent os=new OfflineRegular();
 	OnlineStudent os=new OnlineWeekend();
 	os.registerStudent(s1);
-	System.out.println(s1.getName()+"'s"+ " Student ID is : "+s1.getId() + "\n" 
+	System.out.println(s1.getName()+"'s"+ " Student ID is : "+s1.getId() + "\n"
 	+"Fee Paid by "+s1.getName()+" is : " +s1.getFee()+"\n"
 		+"Fee Balance is : "+ s1.getBalance()+"\nNoDues is : "+ s1.isNoDues());
     }

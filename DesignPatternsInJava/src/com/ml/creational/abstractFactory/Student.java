@@ -4,7 +4,7 @@ import com.ml.creational.abstractFactory.interfaces.ModeOfEducation;
 import com.ml.creational.abstractFactory.interfaces.TypeOfStudent;
 
 public class Student {
-    
+
     private long id;
     private String name;
     private double fee;
@@ -12,7 +12,7 @@ public class Student {
     private double balance;
     private ModeOfEducation moe;
     private TypeOfStudent tos;
-    
+
     public Student() {}
     public Student(long id, String name, double fee, boolean noDues, double balance, ModeOfEducation moe,
 	    TypeOfStudent tos) {
