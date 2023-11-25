@@ -8,13 +8,13 @@ public class OfflineStudent implements ModeOfEducation, StudentRegistration {
 
     @Override
     public TypeOfStudent getStudentType(Student s) {
-	
+
 	return s.getTos();
     }
 
     @Override
     public Student registerStudent(Student s) {
-	
+
 	return s;
     }
 

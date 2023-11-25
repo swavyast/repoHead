@@ -10,6 +10,6 @@ public class WeekendStudent implements TypeOfStudent {
 	// TODO Auto-generated method stub
 	return s.getMoe();
     }
-    
+
 
 }
