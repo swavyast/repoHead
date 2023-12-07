@@ -1,17 +1,20 @@
 package com.ml.creational.singleton;
 
+/**
+ * Early-init singleton class.
+ * */
 public class SingletonClass {
     
     private long id;
     private String name;
     private String email;
     private String phone;
-    private static final SingletonClass instance = new SingletonClass();
+    private static final SingletonClass INSTANCE = new SingletonClass();
     
     private SingletonClass() {} 
     
     public static SingletonClass getInstance() {
-	return instance;
+	return INSTANCE;
     }
 
     public long getId() {
