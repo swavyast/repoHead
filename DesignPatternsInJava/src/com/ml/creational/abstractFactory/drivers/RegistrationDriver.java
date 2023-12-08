@@ -1,32 +1,69 @@
 package com.ml.creational.abstractFactory.drivers;
 
-import com.ml.creational.abstractFactory.OnlineStudent;
-import com.ml.creational.abstractFactory.Student;
-import com.ml.creational.abstractFactory.WeekendStudent;
-import com.ml.creational.abstractFactory.interfaces.ModeOfEducation;
-import com.ml.creational.abstractFactory.interfaces.TypeOfStudent;
+import com.ml.creational.abstractFactory.Classes.FactoryProvider;
+import com.ml.creational.abstractFactory.Classes.OfflineRegular;
+import com.ml.creational.abstractFactory.Classes.OfflineWeekend;
+import com.ml.creational.abstractFactory.Classes.OnlineRegular;
+import com.ml.creational.abstractFactory.Classes.OnlineWeekend;
+import com.ml.creational.abstractFactory.enums.Mode;
+import com.ml.creational.abstractFactory.enums.Presence;
+import com.ml.creational.abstractFactory.interfaces.AbstractFactory;
+import com.ml.creational.abstractFactory.interfaces.Student;
 
 public class RegistrationDriver {
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-	Student s1=new Student();
-	//ModeOfEducation moe=new OfflineStudent();
-	//TypeOfStudent tos=new RegularStudent();
-	ModeOfEducation moe=new OnlineStudent();
-	TypeOfStudent tos=new WeekendStudent();
-	s1.setId(101L);
-	s1.setName("Himanshu");
-	s1.setFee(30_000d);
-	s1.setBalance(0d);
-	s1.setNoDues(true);
-	s1.setMoe(moe);
-	s1.setTos(tos);
-	//OfflineStudent os=new OfflineRegular();
-	OnlineStudent os=new OnlineWeekend();
-	os.registerStudent(s1);
-	System.out.println(s1.getName()+"'s"+ " Student ID is : "+s1.getId() + "\n"
-	+"Fee Paid by "+s1.getName()+" is : " +s1.getFee()+"\n"
-		+"Fee Balance is : "+ s1.getBalance()+"\nNoDues is : "+ s1.isNoDues());
-    }
 
+	AbstractFactory<Student> af = FactoryProvider.getFactory("student");
+	//Creating an instance of OnlineRegular student.
+	System.out.println("\n_______________________*_______________________\n");
+	Student s1 = af.create(Mode.ONLINE, Presence.REGULAR);
+	System.out.println(s1+"\n"); //Students [id=0, name=null, fee=0.0, noDues=false, balance=0.0] <- toString method from Students.class
+	OnlineRegular or = (OnlineRegular) s1; //no error, that means s1 is of type OnlineRegular only.
+	System.out.println(s1.getMode()+"\n");
+	System.out.println(s1.getPresence()+"\n");
+	System.out.println(s1==or);
+	System.out.println();
+	System.out.println(or+"\n");
+	System.out.println(s1.getClass()+"\n");
+	System.out.println(or.getClass()+"\n");
+	
+	//Creating an instance of OnlineWeekend student
+	System.out.println("\n_______________________*_______________________\n");
+	Student s2 = af.create(Mode.ONLINE, Presence.WEEKEND);
+	System.out.println(s2+"\n");
+	OnlineWeekend ow = (OnlineWeekend) s2;
+	System.out.println(s2.getMode()+"\n");
+	System.out.println(s2.getPresence()+"\n");
+	System.out.println(s2==ow);
+	System.out.println();
+	System.out.println(ow+"\n");
+	System.out.println(s2.getClass()+"\n");
+	System.out.println(ow.getClass()+"\n");
+	
+	//Creating an instance of offline regular student.
+	System.out.println("\n_______________________*_______________________\n");
+	Student s3 = af.create(Mode.OFFLINE, Presence.REGULAR);
+	System.out.println(s3+"\n");
+	OfflineRegular ofr = (OfflineRegular) s3;
+	System.out.println(s3.getMode()+"\n");
+	System.out.println(s3.getPresence()+"\n");
+	System.out.println(s3==ofr);
+	System.out.println();
+	System.out.println(s3.getClass()+"\n");
+	System.out.println(ofr.getClass()+"\n");
+	
+	//Creating an instance of OfflineWeekend student.
+	System.out.println("\n_______________________*_______________________\n");
+	Student s4 = af.create(Mode.OFFLINE, Presence.WEEKEND);
+	System.out.println(s4+"\n");
+	OfflineWeekend ofw = (OfflineWeekend) s4;
+	System.out.println(s4.getMode()+"\n");
+	System.out.println(s4.getPresence()+"\n");
+	System.out.println(s4==ofw);
+	System.out.println();
+	System.out.println(s4.getClass()+"\n");
+	System.out.println(ofw.getClass()+"\n");
+    }
 }
